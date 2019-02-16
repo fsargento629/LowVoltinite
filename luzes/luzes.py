@@ -2,12 +2,22 @@
 
 import RPi.GPIO as GPIO
 import time
+import datetime
 
 GPIO.setmode(GPIO.BOARD)
 
 #define the pin that goes to the circuit
 pin_to_circuit = 7
 
+
+def change_file(state):
+    data=str(datetime.datetime.now())
+    f = open("data_luzes.txt","a")
+    
+    f.write(data)
+    f.write(",")
+    f.write(state)
+    f.write(";\n")
 def rc_time (pin_to_circuit):
     count = 0
   
@@ -29,8 +39,12 @@ def rc_time (pin_to_circuit):
 try:
     # Main loop
     while True:
-        print(rc_time(pin_to_circuit))
+       print(rc_time(pin_to_circuit))
+       new_input = rc_time(pin_to_circuit)
+       if new_input != input:
+           change_file(new_input)
+
 except KeyboardInterrupt:
     pass
 finally:
-    GPIO.cleanup()
+    GPIO.cleanup() 
