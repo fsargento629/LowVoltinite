@@ -38,11 +38,14 @@ def rc_time (pin_to_circuit):
 #Catch when script is interrupted, cleanup correctly
 try:
     # Main loop
+    old_input = 0
     while True:
        print(rc_time(pin_to_circuit))
        new_input = rc_time(pin_to_circuit)
-       if new_input != input:
+       if new_input != old_input:
+           print("Cool!")
            change_file(new_input)
+       old_input = new_input
 
 except KeyboardInterrupt:
     pass
