@@ -36,7 +36,7 @@ def estatisticas_semana(dados):
         dados_dia['quantidade'][i] = dados_dia2['quantidade'][i] - dados_dia2['quantidade'][i-1]
 
     #prepara os dados para o grafico desta semana
-    semana = {'Segunda': 0, 'Terça': 0, 'Quarta' : 0, 'Quinta' : 0, 'Sexta' : 0, 'Sabado' : 0, 'Domingo' : 0 }
+    semana = {'Segunda': 0, 'Terca': 0, 'Quarta' : 0, 'Quinta' : 0, 'Sexta' : 0, 'Sabado' : 0, 'Domingo' : 0 }
 
     for i in range(dados_dia.shape[0]):
         dados_dia['data'][i] = datetime.strptime(dados_dia['data'][i], '%Y-%m-%d').date()
@@ -47,7 +47,7 @@ def estatisticas_semana(dados):
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Monday'):
                 semana['Segunda'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Tuesday'):
-                semana['Terça'] = round(dados_dia['quantidade'][i],2)
+                semana['Terca'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Wednesday'):
                 semana['Quarta'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Thursday'):
@@ -63,7 +63,7 @@ def estatisticas_semana(dados):
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Monday'):
                 semana['Segunda'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Tuesday'):
-                semana['Terça'] = round(dados_dia['quantidade'][i],2)
+                semana['Terca'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Wednesday'):
                 semana['Quarta'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Thursday'):
@@ -81,7 +81,7 @@ def estatisticas_semana(dados):
     week_graph.title = "Consumo na semana"
 
     week_graph.add("Segunda", semana['Segunda'])
-    week_graph.add("Terça", semana['Terça'])
+    week_graph.add("Terca", semana['Terca'])
     week_graph.add("Quarta", semana['Quarta'])
     week_graph.add("Quinta", semana['Quinta'])
     week_graph.add("Sexta", semana['Sexta'])
