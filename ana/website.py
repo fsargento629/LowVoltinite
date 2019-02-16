@@ -48,7 +48,7 @@ def home():
 def lights():
     #For each pin, read the pin state and store it in the pins dictionary:
     for pin in pins:
-       #código para perguntar (ao arduino?) o estado do pin.
+       #codigo para perguntar (ao arduino?) o estado do pin.
        #se estivessem ligados ao pi seria  pins[pin]['state'] = GPIO.input(pin)
 
     #Cria um dictionary para mandar o estado dos pinos para a pagina "lights".
