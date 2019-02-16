@@ -16,7 +16,7 @@ def ler_dados():
 
 def estatisticas_semana(dados):
     #TRATAMENTO DOS DADOS POR DIA
-    #cria um DataFrame para os vários dias
+    #cria um DataFrame para os varios dias
     dados_dia = pd.DataFrame(columns=['data', 'quantidade'])
 
     #preenche o dados_dia
@@ -35,8 +35,8 @@ def estatisticas_semana(dados):
     for i in range(1, dados_dia.shape[0]):
         dados_dia['quantidade'][i] = dados_dia2['quantidade'][i] - dados_dia2['quantidade'][i-1]
 
-    #prepara os dados para o gráfico desta semana
-    semana = {'Segunda': 0, 'Terça': 0, 'Quarta' : 0, 'Quinta' : 0, 'Sexta' : 0, 'Sábado' : 0, 'Domingo' : 0 }
+    #prepara os dados para o grafico desta semana
+    semana = {'Segunda': 0, 'Terça': 0, 'Quarta' : 0, 'Quinta' : 0, 'Sexta' : 0, 'Sabado' : 0, 'Domingo' : 0 }
 
     for i in range(dados_dia.shape[0]):
         dados_dia['data'][i] = datetime.strptime(dados_dia['data'][i], '%Y-%m-%d').date()
@@ -55,7 +55,7 @@ def estatisticas_semana(dados):
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Friday'):
                 semana['Sexta'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Saturday'):
-                semana['Sábado'] = round(dados_dia['quantidade'][i],2)
+                semana['Sabado'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Sunday'):
                 semana['Domingo'] = round(dados_dia['quantidade'][i],2)
     else:
@@ -71,12 +71,12 @@ def estatisticas_semana(dados):
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Friday'):
                 semana['Sexta'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Saturday'):
-                semana['Sábado'] = round(dados_dia['quantidade'][i],2)
+                semana['Sabado'] = round(dados_dia['quantidade'][i],2)
             if(calendar.day_name[dados_dia['data'][i].weekday()] == 'Sunday'):
                 semana['Domingo'] = round(dados_dia['quantidade'][i],2)
 
 
-    #GRÁFICO DA SEMANA
+    #GRaFICO DA SEMANA
     week_graph=pygal.Bar(width=1000)
     week_graph.title = "Consumo na semana"
 
@@ -85,7 +85,7 @@ def estatisticas_semana(dados):
     week_graph.add("Quarta", semana['Quarta'])
     week_graph.add("Quinta", semana['Quinta'])
     week_graph.add("Sexta", semana['Sexta'])
-    week_graph.add("Sábado", semana['Sábado'])
+    week_graph.add("Sabado", semana['Sabado'])
     week_graph.add("Domingo", semana['Domingo'])
 
     #week_graph.render_in_browser()

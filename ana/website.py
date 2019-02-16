@@ -51,7 +51,7 @@ def lights():
        #código para perguntar (ao arduino?) o estado do pin.
        #se estivessem ligados ao pi seria  pins[pin]['state'] = GPIO.input(pin)
 
-    #Cria um dictionary para mandar o estado dos pinos para a página "lights".
+    #Cria um dictionary para mandar o estado dos pinos para a pagina "lights".
         templateData = {
            'pins' : pins
            }
