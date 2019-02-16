@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="static/mystyle.css">
+    <title>SUGGESTIONS</title>
+  </head>
+  <body>
+    <center><h1>Suggestions</h1></center>
+	<table>
+	{% for i in tarifario %}
+	<tr>
+		<th>{{ tarifario[i].name }}</th>
+		
+	</tr>
+	{% endfor %}
+	</table>
+	<p></p><p></p><p></p>
+	<center><a href="/"><input type="button" value="HOME" /></a></center>
+  </body>
+</html>
