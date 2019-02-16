@@ -16,6 +16,7 @@ def change_file(state):
     
     f.write(data)
     f.write(",")
+    print("State = " + state)
     f.write(state)
     f.write(";\n")
 def rc_time (pin_to_circuit):
