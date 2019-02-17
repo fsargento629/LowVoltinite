@@ -1,21 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-	<link rel="stylesheet" href="static/mystyle.css">
-    <title>SUGGESTIONS</title>
-  </head>
-  <body>
-    <center><h1>Suggestions</h1></center>
-	<table>
-	{% for i in tarifario %}
-	<tr>
-		<th>{{ tarifario[i].name }}</th>
-		
-	</tr>
-	{% endfor %}
-	</table>
-	<p></p><p></p><p></p>
-	<center><a href="/"><input type="button" value="HOME" /></a></center>
-  </body>
-</html>
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Sugestões{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='mystyle.css')}}">
+{% endblock %}
+
+{% block content %}
+<center><h1>Suggestions</h1></center>
+<table align="center" >
+<tr><td colspan='2'><center>No mês passado gastou 107 euros pelo plano x</center></td></tr>
+<tr><td>          </td></tr>
+<tr><td>          </td></tr>
+<tr><td>          </td></tr>
+{% for i in tarifario %}
+<tr>
+<th width="70%">{{ tarifario[i].name }}</th>
+</tr>
+<tr>
+<td>Simples: 0.{{i}}euro/h</td>
+</tr>
+<tr>
+<td colspan="2">Bi-horário: 8:00 - 22:00 = 0.0{{i*8}}eur/h</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22:00 - 8:00 = 0.{{i*12}}eur/h</td>
+</tr>
+<tr>
+<td colspan="2"> Preço total estimado: {{ i*90 }}</td>
+{% endfor %}
+<tr><td>          </td></tr>
+<tr><td>          </td></tr>
+<tr><td>          </td></tr>
+<tr><td colspan='2'><center>A opção mais adequada ao consumo será o tarifário Electricidade</center></td></tr>
+</table>
+<p></p><p></p><p></p>
+<center><a href="/"><input type="button" value="HOME" /></a></center>
+{% endblock %}

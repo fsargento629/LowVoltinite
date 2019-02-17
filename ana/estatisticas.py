@@ -128,6 +128,3 @@ def estatisticas_dia(dados):
 
     #day_graph.render_in_browser()
     day_graph.render_to_file('static/day_graph.svg')
-dados = ler_dados()
-estatisticas_dia(dados)
-estatisticas_semana(dados)

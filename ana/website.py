@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, url_for
-import os
-from estatisticas import ler_dados, estatisticas_semana
+from flask_bootstrap import Bootstrap
+from estatisticas import ler_dados, estatisticas_semana, estatisticas_dia
 
 app = Flask(__name__)
+Bootstrap(app)
 
 
 #Create a dictionary called pins to store the pin number (arduino?), name, and pin state:
@@ -63,6 +64,7 @@ def lights():
 def statistics():
     dados = ler_dados()
     estatisticas_semana(dados)
+    estatisticas_dia(dados)
     return render_template('statistics.html')
 
 #create suggestions page
@@ -113,5 +115,13 @@ def action(changePin, action):
    return render_template('lights.html', **templateData)
 
 
+<<<<<<< HEAD
+if (__name__) == ('__main__'):
+=======
 if __name__ == '__main__':
+<<<<<<< HEAD
+    app.run(debug=True, host='0.0.0.0', port=5000)
+=======
+>>>>>>> 7794e5293bac96ceb36872cd4ecd99275bbe7e6f
     app.run(host='0.0.0.0', port=80, debug=True)
+>>>>>>> 75794fc9f009b4338cdf2ab3b44385ccd3dc42b9
