@@ -1,39 +1,32 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-	<link rel="stylesheet" href="static/mystyle.css">
-    <title>lights</title>
-  </head>
-  <body>
+{% extends "bootstrap/base.html" %}
 
-	<h1 class="title"><center>Lista das lâmpadas e estado: fazer botões</center></h1>
-	<table class="table" width='100%' height='100%' align="center">
-	<tr>
-	{% for pin in pins %}
-	{% if pins[pin].state == true %}
-		<td><a href="/{{pin}}/off"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfZWVXa2dmRUJ3T0M3N0ZGaWRnQmpOVExWNXVV" width = '50%' align="center"/></a></td>
-	{% else %}
-		<td><a href="/{{pin}}/on"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfWDV4eXdJOTVPcEdsNEtlQ2ZWMFdmNXEydjJF" width = '50%' align="center"/></a></td>
-	{% endif %}
+{% block title %}Lâmpadas{% endblock %}
 
-	{% endfor %}
-	</tr>
-	<tr>
-	{% for pin in pins %}
-	{% if pins[pin].state == true %}
-		<td>The {{ pins[pin].name }} is currently on</td>
-	{% else %}
-		<td>The {{ pins[pin].name }} is currently off </td>
-	{% endif %}
+{% block content %}
+<h1 class="title"><center>Lista das lâmpadas</center></h1>
+<table class="table" width='60%' height='100%' align="center" >
+<tr>
+{% for pin in pins %}
+{% if pins[pin].state == true %}
+  <td><div align="center"><a href="/{{pin}}/off"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfZWVXa2dmRUJ3T0M3N0ZGaWRnQmpOVExWNXVV" style="margin-left=10px;" width = '60%' /></a></div></td>
+{% else %}
+  <td><div align="center"><a href="/{{pin}}/on"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfWDV4eXdJOTVPcEdsNEtlQ2ZWMFdmNXEydjJF" align="middle" width = '60%' /></a></div></td>
+{% endif %}
 
-	{% endfor %}
-	</tr>
-	</table>
+{% endfor %}
+</tr>
+<tr>
+{% for pin in pins %}
+{% if pins[pin].state == true %}
+  <td><center>The {{ pins[pin].name }} is currently on</center></td>
+{% else %}
+  <td><center>The {{ pins[pin].name }} is currently off</center></td>
+{% endif %}
 
-	<p></p><p></p><p></p><p></p>
-    <center><a href="/"><input type='button' value='HOME'/></a></center>
+{% endfor %}
+</tr>
+</table>
 
-	</div>
-  </body>
-</html>
+<p></p><p></p><p></p><p></p>
+  <center><a href="/"><input type='button' value='HOME'/></a></center>
+{% endblock %}
