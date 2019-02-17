@@ -12,9 +12,9 @@
 	<tr>
 	{% for pin in pins %}
 	{% if pins[pin].state == true %}
-		<td><a href="/{{pin}}/off"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfZWVXa2dmRUJ3T0M3N0ZGaWRnQmpOVExWNXVV" width = '50%' /></a></td>
+		<td><a href="/{{pin}}/off"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfZWVXa2dmRUJ3T0M3N0ZGaWRnQmpOVExWNXVV" width = '50%' align="center"/></a></td>
 	{% else %}
-		<td><a href="/{{pin}}/on"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfWDV4eXdJOTVPcEdsNEtlQ2ZWMFdmNXEydjJF" width = '50%' /></a></td>
+		<td><a href="/{{pin}}/on"><img src="https://drive.google.com/uc?id=0Bx3IoOwZWSzfWDV4eXdJOTVPcEdsNEtlQ2ZWMFdmNXEydjJF" width = '50%' align="center"/></a></td>
 	{% endif %}
 
 	{% endfor %}
